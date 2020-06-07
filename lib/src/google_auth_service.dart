@@ -57,7 +57,9 @@ class GoogleAuthService extends AuthServiceAdapter {
   }
 
   @override
-  Future<void> signOut() {
+  Future<void> signOut() async {
+    final GoogleSignIn googleSignIn = GoogleSignIn();
+    await googleSignIn.signOut();
     return _firebaseAuth.signOut();
   }
 
